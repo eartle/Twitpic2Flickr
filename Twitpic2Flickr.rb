@@ -45,11 +45,11 @@ doc = REXML::Document.new(xml_data)
 # Find the last page of Twitpic images
 photo_count = doc.elements['user/photo_count'].text
 perPage = 20
-lastPage = (Integer(photo_count) / 20).ceil
+lastPage = (Integer(photo_count) / 20).ceil + 1
 
 lastPage.times do |index|
   # loop backwards through the Twipic pages (so we upload in chronological order)
-  xml_data = Net::HTTP.get_response(URI.parse("http://api.twitpic.com/2/users/show.xml?username=#{username}&page=#{lastPage - index + 1}")).body
+  xml_data = Net::HTTP.get_response(URI.parse("http://api.twitpic.com/2/users/show.xml?username=#{username}&page=#{lastPage - index}")).body
   doc = REXML::Document.new(xml_data)
 
   doc.elements.reverse_each('user/images/image') do |image|
