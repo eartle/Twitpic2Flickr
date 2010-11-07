@@ -11,7 +11,7 @@ Run Twitpic2Flickr.rb with your Twitter username as an argument.  You will be as
 Example:
 
 <code>
-Twitpic2Flickr.rb eartle
+ruby Twitpic2Flickr.rb eartle
 </code>
 
 # Notes
