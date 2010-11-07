@@ -49,7 +49,7 @@ lastPage = (Integer(photo_count) / 20).ceil
 
 lastPage.times do |index|
   # loop backwards through the Twipic pages (so we upload in chronological order)
-  xml_data = Net::HTTP.get_response(URI.parse("http://api.twitpic.com/2/users/show.xml?username=#{username}&page=#{lastPage - index}")).body
+  xml_data = Net::HTTP.get_response(URI.parse("http://api.twitpic.com/2/users/show.xml?username=#{username}&page=#{lastPage - index + 1}")).body
   doc = REXML::Document.new(xml_data)
 
   doc.elements.reverse_each('user/images/image') do |image|
