@@ -59,11 +59,14 @@ lastPage.times do |index|
     if message
       message = CGI.unescapeHTML(message)
     end
+    type = image.elements['type'].text
   
     print "#{short_id} #{message}\n";
   
+    # Get the full size imge from Twitpic
     image_data = fetch("http://twitpic.com/show/full/#{short_id}").body
   
-    flickr.photos.upload.upload_image(image_data, 'image/jpeg', short_id, message, nil, ['Twitpic'])
+    # upload the image to Flickr
+    flickr.photos.upload.upload_image(image_data, "image/#{type}", short_id, message, nil, ['Twitpic', 'Twitpic2Flickr', short_id])
   end
 end
