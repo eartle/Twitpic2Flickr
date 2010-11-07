@@ -1,0 +1,9 @@
+=Description=
+This script will upload all your photos from Twitpic to Flickr in chronological order with the correct message.
+
+=Usage=
+Run Twitpic2Flickr.rb with your Twitter username as an argument.  You will be asked to authenticate against Flickr the first time you run (You probably don't want to run a second time, if it worked, as it will just upload all your images again). 
+
+=Notes=
+This project uses rflickr and mime-types through ruby-gems
+
